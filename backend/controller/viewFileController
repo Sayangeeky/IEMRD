@@ -1,0 +1,15 @@
+const fs = require('fs')
+const viewFileController = (req, res) => {
+    const path = require('path')
+    fs.readdir(path.join(__dirname,'..', 'uploads'), (err, files) => {
+    if (err) {
+      return res.status(500).json({ message: 'Unable to scan directory' });
+    }
+    
+    
+    
+    res.json({files});
+  });
+}
+
+module.exports = viewFileController
